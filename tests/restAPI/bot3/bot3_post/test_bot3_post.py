@@ -3,6 +3,8 @@ import json
 from pytest import mark
 
 
+@mark.bot3
+@mark.post
 @mark.post_bot3
 class PostBot3Tests:
 
@@ -64,4 +66,3 @@ class PostBot3Tests:
         print(response.status_code)
         date_response = response.json()
         assert (response.status_code == 422), "managed to post bot3 without providing any data"
-

@@ -3,6 +3,8 @@ import json
 from pytest import mark
 
 
+@mark.bot1
+@mark.post
 @mark.post_bot1
 class PostBot1Tests:
 

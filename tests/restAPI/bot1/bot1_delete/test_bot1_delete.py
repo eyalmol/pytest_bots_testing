@@ -3,6 +3,8 @@ import json
 from pytest import mark
 
 
+@mark.bot1
+@mark.delete
 @mark.delete_bot1
 class DeleteBot1Tests:
     # for testing this method need to specify id that exists in DB

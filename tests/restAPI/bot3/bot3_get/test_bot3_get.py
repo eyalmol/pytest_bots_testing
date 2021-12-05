@@ -3,6 +3,8 @@ import json
 from pytest import mark
 
 
+@mark.bot3
+@mark.get
 @mark.get_bot3
 class GetBot3Tests:
     @staticmethod
@@ -20,14 +22,16 @@ class GetBot3Tests:
 
         response = requests.get(url)
         print(response.status_code)
-        assert (response.status_code == 200 and response.text == "make_api_call"), "something went wrong in the bot3 get make api call"
+        assert (
+                response.status_code == 200 and response.text == "make_api_call"), "something went wrong in the bot3 get make api call"
 
     @staticmethod
     def test_bot3_get_make_api_call_wrong_auth():
         url = 'http://localhost:4200/api/bot3/61abbcf809444d8ebaf8b96a/eyalndov'
         response = requests.get(url)
         print(response.status_code)
-        assert (response.status_code == 200 and response.text == "Unauthorized"), "was able to make api call although giving wrong username+password "
+        assert (
+                response.status_code == 200 and response.text == "Unauthorized"), "was able to make api call although giving wrong username+password "
 
     @staticmethod
     def test_bot3_get_make_api_call_id_does_not_exist():
@@ -41,4 +45,5 @@ class GetBot3Tests:
         url = 'http://localhost:4200/api/bot3/61abbcf809444d8ebaf8b96a/30377'
         response = requests.get(url)
         print(response.status_code)
-        assert (response.status_code == 200 and response.text == "make_api_call"), "bot3 get was not able to generate api call although supplying right auth"
+        assert (
+                response.status_code == 200 and response.text == "make_api_call"), "bot3 get was not able to generate api call although supplying right auth"

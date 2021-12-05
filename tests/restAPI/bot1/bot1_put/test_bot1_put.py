@@ -3,6 +3,8 @@ import json
 from pytest import mark
 
 
+@mark.bot1
+@mark.put
 @mark.put_bot1
 class PutBot1Tests:
     @staticmethod

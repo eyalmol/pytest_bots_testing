@@ -3,6 +3,8 @@ import json
 from pytest import mark
 
 
+@mark.bot2
+@mark.put
 @mark.put_bot2
 class PutBot2Tests:
     @staticmethod
@@ -56,7 +58,8 @@ class PutBot2Tests:
         response = requests.put(url, json=data)
         print(response.status_code)
         date_response = response.json()
-        assert (response.status_code == 200 and response.text.__contains__("this is my new welcome msg")), "wasn't able to generate a welcome message replacing the default one"
+        assert (response.status_code == 200 and response.text.__contains__(
+            "this is my new welcome msg")), "wasn't able to generate a welcome message replacing the default one"
 
     @staticmethod
     def test_bot2_put_method_generate_intent_not_changing_welcome_msg():
@@ -66,7 +69,5 @@ class PutBot2Tests:
         response = requests.put(url, json=data)
         print(response.status_code)
         date_response = response.json()
-        assert (response.status_code == 200 and response.text.__contains__("welcome")), "wasn't able to generate a welcome message intent"
-
-
-
+        assert (response.status_code == 200 and response.text.__contains__(
+            "welcome")), "wasn't able to generate a welcome message intent"

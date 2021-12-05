@@ -3,6 +3,8 @@ from pytest import mark
 import json
 
 
+@mark.bot2
+@mark.post
 @mark.post_bot2
 class PostBot2Tests:
     @staticmethod
@@ -44,4 +46,3 @@ class PostBot2Tests:
         print(response.status_code)
         data_response = response.json()
         assert (response.status_code == 422), "managed to post bot2 with id as a string"
-
